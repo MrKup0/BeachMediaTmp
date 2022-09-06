@@ -16,7 +16,7 @@ class genericDataStructure:
             self.struct = None
 
     # check this behaves as intended
-    def validate(self):
+    def validate(self) -> bool:
         return self.internalType is not None
 
     def import(self, fileName: str):
