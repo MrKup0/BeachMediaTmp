@@ -7,10 +7,10 @@ import tweets
 # better way to handle this, look into refactoring
 class genericDataStructure:
     def __init__(self, type: str):
-        self.internalType = str
-        if str is "twitter":
+        self.internalType = type
+        if type is "twitter":
             self.struct = tweets.TweetCollection()
-        elif str is "web" or "article":
+        elif type is "web" or "article":
             self.struct = article.ArticleCollection()
         else:
             self.struct = None
@@ -44,5 +44,3 @@ if __name__ == '__main__':
 
     fileName = input("Enter file name with suffix:")
     mainData.import(fileName)
-
-    
