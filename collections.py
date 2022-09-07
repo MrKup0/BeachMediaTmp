@@ -36,7 +36,7 @@ class TweetCollection(DataCollection):
         self.struct.append(val)
         self.n += 1
 
-    def importFromFile(self, fileName: str):
+    def importFromFile(self, filename: str):
         with open(filename) as file:
             reader = csv.reader(file, delimiter=";")
             first_line = True
