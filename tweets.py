@@ -36,19 +36,4 @@ class Tweet:
 
     def getURLClicks(self):
         return self.urlClicks
-
-
-class TweetCollection:
-    def __init__(self):
-        self.mainData: list = []
-        self.n = 0
-
-    def getMax(self) -> int:
-        return self.n
-
-    def addTweet(self, tweet: Tweet):
-        self.mainData.append(tweet)
-        self.n += 1
-
-    def getTweet(self, i) -> Tweet:
-        return self.mainData[i]
+        

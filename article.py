@@ -55,21 +55,3 @@ class Article:
 
     def updateTitle(self, t: str):
         self.title = t
-
-
-# custom list
-class ArticleCollection:
-    def __init__(self):
-        self.mainData: list = []
-        self.n: int = 0
-
-    # add an article to the set
-    def addArticle(self, article: Article):
-        self.mainData.append(article)
-        self.n += 1
-
-    def numArticles(self) -> int:
-        return self.n
-
-    def getArticle(self, index: int) -> Article:
-        return self.mainData[index]
