@@ -1,4 +1,4 @@
-# better way to handle this, look into refactoring
+# main collections file
 from tweets import Tweet
 from article import Article
 import csv
