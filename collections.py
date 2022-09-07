@@ -1,7 +1,6 @@
 # better way to handle this, look into refactoring
 from tweets import Tweet
 from article import Article
-import readers
 import csv
 
 class DataCollection:
