@@ -61,17 +61,15 @@ class Article:
 class ArticleCollection:
     def __init__(self):
         self.mainData: list = []
+        self.n: int = 0
 
     # add an article to the set
     def addArticle(self, article: Article):
         self.mainData.append(article)
+        self.n += 1
 
-    def numArticles(self) -> float:
-        n = 0
-        for article in self.mainData:
-            n = n + 1
-        return n
+    def numArticles(self) -> int:
+        return self.n
 
     def getArticle(self, index: int) -> Article:
         return self.mainData[index]
-

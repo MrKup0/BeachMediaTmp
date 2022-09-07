@@ -41,15 +41,14 @@ class Tweet:
 class TweetCollection:
     def __init__(self):
         self.mainData: list = []
+        self.n = 0
 
-    def numTweets(self) -> int:
-        n = 0
-        for t in self.mainData:
-            n += 1
-        return n
+    def getMax(self) -> int:
+        return self.n
 
     def addTweet(self, tweet: Tweet):
         self.mainData.append(tweet)
+        self.n += 1
 
     def getTweet(self, i) -> Tweet:
         return self.mainData[i]
