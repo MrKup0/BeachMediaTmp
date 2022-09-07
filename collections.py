@@ -25,8 +25,14 @@ class DataCollection:
     def getType(self):
         return self.internalType
 
+    def getMax(self) -> int:
+        return self.n
+
     def aBadFunction(self):
         return self.struct
+
+    def getSpecific(self, val: str, pos: int):
+        return None
 
 class TweetCollection(DataCollection):
     def __init__(self, type: str):
@@ -45,7 +51,8 @@ class TweetCollection(DataCollection):
                 if first_line:
                     first_line = False
                     continue
-                id = float(line[0])
+                id = str(line[0])
+                # id = float(line[0])
                 url = str(line[1])
                 imps = float(line[4])
                 eng = float(line[5])
@@ -57,6 +64,31 @@ class TweetCollection(DataCollection):
 
                 reading = Tweet(id, url, imps, eng, er, retweet, like, reply, urlC)
                 self.addTweet(reading)
+
+    def getSpecific(self, val: str, pos: int):
+        # i hope this works!
+        tmp: Tweet = self.struct.getData(pos)
+        match val:
+            case "id":
+                return tmp.getID()
+            case "url":
+                return tmp.getURL()
+            case "impressions":
+                return tmp.getImps()
+            case "engagement":
+                return tmp.getEngage()
+            case "erate":
+                return tmp.getERate()
+            case "retweets":
+                return tmp.getRetweets()
+            case "replies":
+                return tmp.getReplies()
+            case "likes":
+                return tmp.getLikes()
+            case "urlclicks":
+                return tmp.getURLClicks()
+            case _:
+                return None
 
 class ArticleCollection(DataCollection):
     def __init__(self, type: str):
@@ -84,3 +116,14 @@ class ArticleCollection(DataCollection):
                 if isD49:
                     reading.isD49()
                 self.addArticle(reading)
+    def getSpecific(self, val: str, pos: int):
+        tmp: Tweet = self.struct.getData(pos)
+        match val:
+            case "views":
+                return tmp.getViews()
+            case "uviews" | "uViews" | "unique":
+                return tmp.getUniqueViews()
+            case "url":
+                return tmp.getURL()
+            case _:
+                return None
