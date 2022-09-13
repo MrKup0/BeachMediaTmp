@@ -30,6 +30,9 @@ class Article:
     def getYear(self):
         return self.year
 
+    def getURL(self):
+        return self.url
+
     def getMonth(self):
         return self.month
 
