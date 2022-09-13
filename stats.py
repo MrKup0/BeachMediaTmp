@@ -1,11 +1,12 @@
-import statistics
-import dataCollection from generic
+import numpy as np
+from collections import DataCollection
+from collections import ArticleCollection
+from collections import TweetCollection
 
-def mean(data: DataCollection, val: str) -> float:
-    tmpData: list = []
-    n = data.getMax()
 
-    for i in range(0, n, 1):
-        tmpData.append(data.getSpecific(val, i))
-        
-    return statistics.mean(tmpData)
+def varMean(data: DataCollection, var: str):
+    if not isinstance(data.getSpecific(var, 0), float):
+        return None
+
+
+    for i in range(0, data.getMax(), 1):
